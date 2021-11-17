@@ -1,0 +1,51 @@
+region: "us-east-1"
+anypoint-mq:
+  test-mq-ap-auto-1:
+    defaultTtl: 120000
+    defaultLockTtl: 10000
+    defaultDeliveryDelay: 0
+    encrypted: false
+    fifo: false
+deployment:
+  runtimeManager:
+    applications:
+      1st:
+        file: "app-test-v1.jar"
+        autoStart: "true"
+        settings:
+          domain: "app-test-bryan-v6"
+          muleVersion:
+            version: "4.4.0"
+          region: "us-east-1"
+          monitoringEnabled: "true"
+          monitoringAutoRestart: "true"
+          workers:
+            amount: 1
+            type:
+              name: "Micro"
+              weight: 1
+              cpu: "0.1 vCore"
+              memory: "0.5 GB memory"
+          loggingNgEnabled: "true"
+          persistentQueues: "false"
+          objectStoreV1: "false"
+      2nd:
+        file: "app-test-v1.jar"
+        autoStart: "true"
+        settings:
+          domain: "app-test-bryan-le-v5"
+          muleVersion:
+            version: "4.4.0"
+          region: "us-east-1"
+          monitoringEnabled: "true"
+          monitoringAutoRestart: "true"
+          workers:
+            amount: 1
+            type:
+              name: "Micro"
+              weight: 1
+              cpu: "0.1 vCore"
+              memory: "0.5 GB memory"
+          loggingNgEnabled: "true"
+          persistentQueues: "false"
+          objectStoreV1: "false"
