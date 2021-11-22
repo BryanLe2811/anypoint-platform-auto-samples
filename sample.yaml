@@ -1,51 +1,78 @@
-region: "us-east-1"
+businessGroupName: My Business Group Name
+region: ap-southeast-2
+api:
+  football-api:
+    settings:
+      spec:
+        assetId: dom-test-exp
+        version: 1.0.1
+        groupId: d1b97bf4-1a45-4381-8ccd-9e899becddc2
+      endpoint:
+        uri: https://some.implementation.com
+        proxyUri: http://0.0.0.0:8081/
+        isCloudHub: true
+        muleVersion4OrAbove: true
+      instanceLabel: Best Football Api
+    apiId: null
 anypoint-mq:
   test-mq-ap-auto-1:
     defaultTtl: 120000
     defaultLockTtl: 10000
     defaultDeliveryDelay: 0
     encrypted: false
+    fifo: true
+  test-mq-ap-auto-2:
+    defaultTtl: 120000
+    defaultLockTtl: 10000
+    defaultDeliveryDelay: 0
+    encrypted: true
     fifo: false
-deployment:
-  runtimeManager:
-    applications:
-      1st:
-        file: "app-test-v1.jar"
-        autoStart: "true"
-        settings:
-          domain: "app-test-bryan-v6"
-          muleVersion:
-            version: "4.4.0"
-          region: "us-east-1"
-          monitoringEnabled: "true"
-          monitoringAutoRestart: "true"
-          workers:
-            amount: 1
-            type:
-              name: "Micro"
-              weight: 1
-              cpu: "0.1 vCore"
-              memory: "0.5 GB memory"
-          loggingNgEnabled: "true"
-          persistentQueues: "false"
-          objectStoreV1: "false"
-      2nd:
-        file: "app-test-v1.jar"
-        autoStart: "true"
-        settings:
-          domain: "app-test-bryan-le-v5"
-          muleVersion:
-            version: "4.4.0"
-          region: "us-east-1"
-          monitoringEnabled: "true"
-          monitoringAutoRestart: "true"
-          workers:
-            amount: 1
-            type:
-              name: "Micro"
-              weight: 1
-              cpu: "0.1 vCore"
-              memory: "0.5 GB memory"
-          loggingNgEnabled: "true"
-          persistentQueues: "false"
-          objectStoreV1: "false"
+applications:
+  app-test-apauto-v1:
+    file: app-test-v1.jar
+    autoStart: "true"
+    settings:
+      domain: app-test-apauto-v1
+      muleVersion:
+        version: 4.4.0
+      properties:
+        key1: value1
+      region: us-east-1
+      monitoringEnabled: "true"
+      monitoringAutoRestart: "true"
+      workers:
+        amount: 1
+        type:
+          name: Micro
+          weight: 1
+          cpu: 0.1 vCore
+          memory: 0.5 GB memory
+      loggingNgEnabled: "true"
+      persistentQueues: "false"
+      objectStoreV1: "false"
+      staticIPsEnabled: "false"
+      loggingCustomLog4JEnabled: "false"
+  app-test-apauto-v2:
+    file: app-test-v1.jar
+    autoStart: "true"
+    settings:
+      domain: app-test-apauto-v2
+      muleVersion:
+        version: 4.4.0
+      properties:
+        key1: value1
+      region: us-east-1
+      monitoringEnabled: "true"
+      monitoringAutoRestart: "true"
+      workers:
+        amount: 1
+        type:
+          name: Micro
+          weight: 1
+          cpu: 0.1 vCore
+          memory: 0.5 GB memory
+      loggingEnabled: "false"
+      persistentQueues: "true"
+      objectStoreV1: "false"
+      staticIPsEnabled: "false"
+      loggingCustomLog4JEnabled: "true"
