@@ -6,14 +6,12 @@ api:
       spec:
         assetId: dom-test-exp
         version: 1.0.1
-        groupId: d1b97bf4-1a45-4381-8ccd-9e899becddc2
       endpoint:
         uri: https://some.implementation.com
         proxyUri: http://0.0.0.0:8081/
         isCloudHub: true
         muleVersion4OrAbove: true
       instanceLabel: Best Football Api
-    apiId: null
 anypoint-mq:
   test-mq-ap-auto-1:
     defaultTtl: 120000
